@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en" ng-app="cstutors" >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>CS: Tutors</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="project.css" rel="stylesheet">
+    
+    
+    <!-- link to angular -->
+    <script src="angular.min.js"></script>
+
+    <!-- angular code we wrote -->
+    <!-- soccer.module.js is where we define the angular app called 'soccer'.
+    We use the name of the app in the html element at the top of the file -->
+    <script src="cstutors.module.js"></script>
+    <!-- data.soccer.controller.js is where we are getting the data from.
+    It defines a controller under the 'soccer' app called 'dataControl', and data is under $scope.data -->
+    <script src="data.cstutors.controller.js"></script>
+    <!-- soccer.filter.js enables us to display html code -->
+    <script src="cstutors.filter.js"></script>
+    
+  </head>
+  
+  <!-- Main Body of page. Checks if user is logged in -->
+  <body ng-controller="dataControl" ng-show="isloggedin" >
+    
+    <!-- Top Nav. Log out option shown if user is logged in-->
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0" ng-init="checkifloggedin()">
+      <!--<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>-->
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" ><img src="imgs/logo3.png" width="126.9" height="32.94" alt=""></a>
+      <!--<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">-->
+      
+      <ul class="navbar-nav px-3">
+        <!-- menu item for logging in, active if menuHighlight is equal to 3 -->
+        <li class="nav-item" ng-class="{'active' : (menuHighlight == 3)}" ng-show="!isloggedin">
+            <a class="nav-link" href="index.html">Log in</a>
+        </li>
+          
+        <li class="nav-item" ng-show="isloggedin">
+            <a class="nav-link" href="" ng-click="logout()"><i class="fa fa-fw fa-sign-out"></i>Log out</a>
+        </li>          
+      </ul>
+    </nav>
+
+    <!-- Container contains sidenav/main body -->
+    <div class="container-fluid">
+        <div class="row">
+            <!--Side Nav-->
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                      <li class="nav-item"><a class="nav-link" href="facultyhome.html"><span data-feather="home"></span>Dashboard<span class="sr-only">(current)</span></a></li>
+                      <li class="nav-item"><a class="nav-link active" href="#"><span data-feather="layers"></span>CS:1210</a></li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <!--Main body-->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                    <h3>CS:1210 </h3>
+                </div>
+                
+                <!-- Table showing students in course 1210-->
+                <h5>Students</h5>
+                <div class="table-container">
+                    <div class="table-responsive" >
+                        <table class="table table-striped table-sm" >
+                            <thead>
+                                <tr>
+                                    <th>HawkID</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody  ng-repeat="student in data.students">
+                                <tr>
+                                    <td>{{student.hawkid}}</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                      </div>
+                </div>
+                
+                <h5>Course Files</h5>
+                <div class="table-container">
+                    <div class="table-responsive" >
+                        <table class="table table-striped table-sm" >
+                            <thead>
+                                <tr>
+                                    <th>Filename</th>
+                                    <th>Notes</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody  ng-repeat="apost in post.posts">
+                                <tr>
+                                    <td>{{apost.filename}}</td>
+                                    <td>{{apost.problemnotes}}</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                      </div>
+                </div>
+                
+                
+
+                
+        <div class="row-form" id="collapse-form">              
+            <form  name="newPostForm" novalidate>
+              
+                <h5>Filename:</h5>
+                <div class='row' id='classtype'>
+                  
+                  <div class="col-md-12">
+                      <textarea rows="1" class="form-control" name="filename" id='filename' ng-model="problemset.filename"  form="filename">Enter text here...</textarea>
+                  </div>
+                </div>
+              
+              
+                <h5>Context:</h5>
+                <div class='row' id='classtype'>
+                  
+                  <div class="col-md-12">
+                      <textarea rows="2" class="form-control" name="problemnotes" id='problemnotes' ng-model="problemset.problemnotes"  form="problemnotes">Enter text here...</textarea>
+                  </div>
+                </div>
+                <button class="btn btn-default" ng-click="newPost1210(problemset)">Add Post</button>
+            </form>
+            </div> <!-- close row -->
+            </main>
+        </div>
+    </div>
+
+  </body>
+</html>

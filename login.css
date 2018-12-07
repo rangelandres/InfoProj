@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+}
+
+
+
+body {
+
+    background-image: url("imgs/bg-img.jpg");
+    background-size: cover;
+    background-repeat:no-repeat;
+    height: 100%;
+
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin{
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.logo{
+    max-width: 100%;
+}
+
+.container{
+    width: 30%;
+    height: 100%;
+}
+
+.hero{
+    display: flex;
+    margin: auto;
+    height: 100%;
+}
+
+.ng-scope{
+  height: 100%;
+  margin: auto;
+}
+
+.container.ng-scope{
+  height: 100%;
+  margin: auto;
+  padding-top: 10%;
+  width: 100%;
+  padding-right: 55%;
+  
+  
+}
+
+.header{
+  color: white;
+  font-family: monospace;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  }
+
+.desc{
+  padding-top: 10px;
+}
+
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+}
